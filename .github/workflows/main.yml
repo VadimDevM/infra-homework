@@ -1,0 +1,48 @@
+name: myPypelineHomeWork_7
+on:
+  push:
+    branches:
+    - main
+    - release/* 
+
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.1.0
+        with: 
+          cache: true
+      - name: yarn install
+        uses: npm i yarn@v1.22.22
+      - name: dependencies install
+        run: yarn i
+      - name: Cache
+        uses: actions/cache@v4.2.0
+
+  build:
+    needs: [dependencies]
+    runs-on: ubuntu-latest
+    steps:
+      - name: dependencies install
+        run: yarn i
+      - name: build
+        run: yarn build
+
+  linters:
+    needs: [dependencies]
+    runs-on: ubuntu-latest
+    steps:
+      - name: dependencies install
+        run: yarn i
+      - name: linting
+        run: yarn linters
+
+  deploy:
+    needs: [dependencies, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: yarn deploy
