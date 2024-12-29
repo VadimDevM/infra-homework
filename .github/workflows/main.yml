@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.1.0
-        with: 
+        with:
+          cache-dependency-path: subdir/yarn.lock
           cache: 'yarn'
       - name: Checkout
         uses: actions/checkout@v4.2.2
