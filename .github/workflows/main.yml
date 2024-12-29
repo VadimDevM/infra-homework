@@ -11,22 +11,19 @@ jobs:
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.1.0
-        with:
-          cache-dependency-path: yarn.lock
-          cache: 'yarn'
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Cache
         uses: actions/cache@v4.2.0
       - name: dependencies install
-        run: yarn i
+        run: yarn ci
 
   build:
     needs: [dependencies]
     runs-on: ubuntu-24.04
     steps:
       - name: dependencies install
-        run: yarn i
+        run: yarn ci
       - name: build
         run: yarn build
 
@@ -35,7 +32,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: dependencies install
-        run: yarn i
+        run: yarn ci
       - name: linting
         run: yarn linters
 
