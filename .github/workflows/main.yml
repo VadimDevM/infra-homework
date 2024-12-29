@@ -12,7 +12,6 @@ jobs:
       - uses: actions/checkout@v4.2.2
       - uses: actions/setup-node@v4.1.0
         with:
-          node-version: 22.11.0
           cache: 'yarn'
       - name: dependencies install
         run: yarn
@@ -22,6 +21,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.1.0
       - name: dependencies install
         run: yarn
       - name: build
