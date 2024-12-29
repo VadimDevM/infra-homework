@@ -16,7 +16,7 @@ jobs:
         with: 
           cache: true
       - name: yarn install
-        uses: npm i yarn@v1.22.22
+        run: npm i yarn@v1.22.22
       - name: dependencies install
         run: yarn i
       - name: Cache
