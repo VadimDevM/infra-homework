@@ -7,7 +7,7 @@ on:
 
 jobs:
   dependencies:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -24,7 +24,7 @@ jobs:
 
   build:
     needs: [dependencies]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: dependencies install
         run: yarn i
@@ -33,7 +33,7 @@ jobs:
 
   linters:
     needs: [dependencies]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: dependencies install
         run: yarn i
@@ -42,7 +42,7 @@ jobs:
 
   deploy:
     needs: [dependencies, build]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: deploy
         run: yarn deploy
