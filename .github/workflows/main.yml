@@ -20,9 +20,6 @@ jobs:
     needs: [dependencies]
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-node@v4.1.0
-      - run: yarn add webpack
       - name: dependencies install
         run: yarn
       - name: build
