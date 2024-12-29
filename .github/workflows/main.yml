@@ -15,8 +15,6 @@ jobs:
         uses: actions/setup-node@v4.1.0
         with: 
           cache: 'yarn'
-      - name: yarn install
-        run: npm i yarn@v1.22.22
       - name: dependencies install
         run: yarn i
       - name: Cache
